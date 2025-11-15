@@ -1,12 +1,8 @@
-// Add the required props
-export const TodoInfo = ({ todo: { id, userId, completed, title } }) => {
-  return (
-    <article className="TodoInfo TodoInfo--completed">
-      <h2 className="TodoInfo__title">HTML</h2>
+import { UserInfo } from '../UserInfo/UserInfo';
 
-      <a className="UserInfo" href="mailto:Sincere@april.biz">
-        Leanne Graham
-      </a>
-    </article>
-  );
-};
+export const TodoInfo = ({ todo: { completed, title, user } }) => (
+  <article className={`TodoInfo ${completed ? 'TodoInfo--completed' : ''}`}>
+    <h2 className="TodoInfo__title">{title}</h2>
+    {user && <UserInfo user={user} />}
+  </article>
+);
